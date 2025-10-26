@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer & Tailor | 设计师与裁缝连接平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1529338296731-c4280a44fc48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            text-align: center;
+            padding: 2rem;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: #f5f5f5;
+        }
+        
+        .welcome-text {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .welcome-text strong {
+            font-weight: 600;
+            color: #d4af37;
+        }
+        
+        .user-selection {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+        }
+        
+        .user-option {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 300px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .user-option:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        }
+        
+        .user-option i {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+        }
+        
+        .user-option h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .user-option p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            color: #888;
+            font-size: 1.2rem;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 1rem;
+        }
+        
+        .footer {
+            margin-top: 5rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 2.5rem;
+            }
+            
+            .user-selection {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            
+            .user-option {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">DESIGN<span>&</span>TAILOR</div>
+        
+        <h1 class="welcome-text">
+            欢迎来到 <strong>设计师与裁缝</strong> 的专业连接平台
+        </h1>
+        
+        <div class="divider">我是</div>
+        
+        <div class="user-selection">
+            <div class="user-option" onclick="selectUser('designer')">
+                <i class="fas fa-pencil-ruler"></i>
+                <h2>设计师</h2>
+                <p>我有设计创意，寻找专业裁缝实现我的作品</p>
+            </div>
+            
+            <div class="user-option" onclick="selectUser('tailor')">
+                <i class="fas fa-cut"></i>
+                <h2>裁缝</h2>
+                <p>我有精湛工艺，期待与设计师合作创造精品</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Designer & Tailor 连接平台 | <a href="#">关于我们</a> | <a href="#">服务条款</a></p>
+        </div>
+    </div>
+
+    <script>
+        function selectUser(userType) {
+            // 这里可以添加用户选择的后续逻辑
+            alert(`您选择了: ${userType === 'designer' ? '设计师' : '裁缝'}，即将进入专属空间`);
+            
+            // 实际应用中这里应该重定向到相应页面
+            // if(userType === 'designer') {
+            //     window.location.href = 'designer-dashboard.html';
+            // } else {
+            //     window.location.href = 'tailor-dashboard.html';
+            // }
+        }
+    </script>
+</body>
+</html>
